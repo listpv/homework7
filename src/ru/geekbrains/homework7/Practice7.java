@@ -101,5 +101,14 @@ public class Practice7
         }
 
         plateFull.info();
+//      Отдельно для случая, если кот уже сыт.
+        System.out.println();
+        Cat cat10 = new Cat("Vas'ka", 5);
+        Plate plate1 = new Plate(10);
+        plate1.info();
+        cat10.eatFrom(plate1);
+        plate1.info();
+        cat10.eatFrom(plate1);
+        plate1.info();
     }
 }
