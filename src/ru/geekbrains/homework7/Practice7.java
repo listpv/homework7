@@ -45,8 +45,6 @@ public class Practice7
                 }
         }
         System.out.println();
-        plate.info();
-        System.out.println();
 
 // *     Чтобы коты всегда были сытые.
 
@@ -60,7 +58,8 @@ public class Practice7
         Plate plateFull = new Plate(12);
         plateFull.info();
 
-        for(int i = 0; i < catHappyFamily.length; i++)
+        System.out.println("1-й способ.");
+        for(int i = 0; i < catHappyFamily.length; i++)     // 1-й способ.
         {
             do
                 {
@@ -78,6 +77,38 @@ public class Practice7
         }
 
         System.out.println();
+        System.out.println("2-й способ.");
+        for(int i = 0; i < catHappyFamily.length; i++)     // 2-й способ.
+        {
+            do
+            {
+                catHappyFamily[i].eatFrom(plateFull);
+                if(catHappyFamily[i].getSatiety())
+                {
+                    System.out.println(catHappyFamily[i].getName() + " сыт.");
+                }
+                else
+                {
+                    int sumAppetite = 0;            // переменная для подсчёта аппетита оставшихся кошек.
+                    for(int j = i; j < catHappyFamily.length; j++)
+                    {
+                        sumAppetite += catHappyFamily[j].getAppetite();
+                    }
+                    plateFull.setFood(sumAppetite);
+                }
+            }
+            while (!catHappyFamily[i].getSatiety());
+        }
+
         plateFull.info();
+//      Отдельно для случая, если кот уже сыт.
+        System.out.println();
+        Cat cat10 = new Cat("Vas'ka", 5);
+        Plate plate1 = new Plate(10);
+        plate1.info();
+        cat10.eatFrom(plate1);
+        plate1.info();
+        cat10.eatFrom(plate1);
+        plate1.info();
     }
 }

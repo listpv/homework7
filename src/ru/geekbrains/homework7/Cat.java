@@ -16,7 +16,14 @@ public class Cat
 
     public void eatFrom(Plate p)
     {
-        satiety = p.decreaseFood(appetite);
+        if(!satiety)
+        {
+            satiety = p.decreaseFood(appetite);
+        }
+        else
+            {
+                System.out.println(name + " не голоден");
+            }
     }
 
     public boolean getSatiety()
